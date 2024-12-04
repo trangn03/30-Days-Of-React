@@ -957,29 +957,126 @@ const webTechs = [
 ]
 ```
 
-1. Declare an _empty_ array;
-2. Declare an array with more than 5 number of elements
-3. Find the length of your array
-4. Get the first item, the middle item and the last item of the array
-5. Declare an array called _mixedDataTypes_, put different data types in the array and find the length of the array. The array size should be greater than 5
-6. Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon
-7. Print the array using _console.log()_
-8. Print the number of companies in the array
-9. Print the first company, middle and last company
-10. Print out each company
-11. Change each company name to uppercase one by one and print them out
-12. Print the array like as a sentence: Facebook, Google, Microsoft, Apple, IBM,Oracle and Amazon are big IT companies.
-13. Check if a certain company exists in the itCompanies array. If it exist return the company else return a company is _not found_
-14. Filter out companies which have more than one 'o' without the filter method
-15. Sort the array using _sort()_ method
-16. Reverse the array using _reverse()_ method
-17. Slice out the first 3 companies from the array
-18. Slice out the last 3 companies from the array
-19. Slice out the middle IT company or companies from the array
-20. Remove the first IT company from the array
-21. Remove the middle IT company or companies from the array
-22. Remove the last IT company from the array
-23. Remove all IT companies
+Declare an _empty_ array; 
+```
+const _empty_ = [];
+```  
+Declare an array with more than 5 number of elements
+```
+const numbers = [1,2,3,4,5,6];
+``` 
+Find the length of your array
+```
+console.log(numbers.length);
+``` 
+Get the first item, the middle item and the last item of the array
+```
+let firstItem = numbers[0];
+let middleItem = numbers[Math.floor(numbers.length / 2)];
+let lastItem = numbers[numbers.length - 1];
+
+console.log(firstItem, middleItem, lastItem); // Output: 1 4 6
+```
+Declare an array called _mixedDataTypes_, put different data types in the array and find the length of the array. The array size should be greater than 5
+```
+let mixedDataTypes = [42, 'hello', true, null, undefined, { key: 'value' }];
+console.log(mixedDataTypes.length); // Output: 6
+
+```
+Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon
+```
+const itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+```
+Print the array using _console.log()_
+```
+console.log(itCompanies);
+```
+Print the number of companies in the array
+```
+console.log(itCompanies.length);
+```
+Print the first company, middle and last company
+```
+console.log(itCompanies[0]); // First company
+console.log(itCompanies[Math.floor(itCompanies.length / 2)]); // Middle company
+console.log(itCompanies[itCompanies.length - 1]); // Last company
+```
+Print out each company
+```
+itCompanies.forEach(company => console.log(company));
+```
+Change each company name to uppercase one by one and print them out
+```
+itCompanies.forEach(company => console.log(company.toUpperCase()));
+```
+Print the array like as a sentence: Facebook, Google, Microsoft, Apple, IBM,Oracle and Amazon are big IT companies.
+```
+console.log(`${itCompanies.join(', ')} are big IT companies.`);
+```
+Check if a certain company exists in the itCompanies array. If it exist return the company else return a company is _not found_
+const check = 'Google';
+if (itCompanies.include(check)) {
+  console.log(check);
+} else {
+  console.log('Not found');
+}
+Filter out companies which have more than one 'o' without the filter method
+```
+let companiesWithMoreThanOneO = [];
+for (let company of itCompanies) {
+    let count = company.split('o').length - 1; // Count 'o's
+    if (count > 1) {
+        companiesWithMoreThanOneO.push(company);
+    }
+}
+console.log(companiesWithMoreThanOneO);
+```
+Sort the array using _sort()_ method
+```
+itCompanies.sort();
+```
+Reverse the array using _reverse()_ method
+```
+itCompanies.reverse();
+```
+Slice out the first 3 companies from the array
+```
+itCompanies.splice(0,3);
+```
+Slice out the last 3 companies from the array
+```
+itCompanies.splice(0,3)
+```
+Slice out the middle IT company or companies from the array
+```
+let middleIndex = Math.floor(itCompanies.length / 2);
+console.log(itCompanies.length % 2 === 0 
+    ? itCompanies.slice(middleIndex - 1, middleIndex + 1) 
+    : itCompanies.slice(middleIndex, middleIndex + 1));
+
+```
+Remove the first IT company from the array
+```
+itCompanies.shift();
+```
+Remove the middle IT company or companies from the array
+```
+middleIndex = Math.floor(itCompanies.length / 2);
+itCompanies.length % 2 === 0 
+    ? itCompanies.splice(middleIndex - 1, 2) 
+    : itCompanies.splice(middleIndex, 1);
+console.log(itCompanies);
+```
+Remove the last IT company from the array
+```
+itCompanies.pop();
+console.log(itCompanies);
+```
+Remove all IT companies
+```
+itCompanies.length = 0;
+console.log(itCompanies); // Output: []
+```
 
 ##### Exercise: Level 2
 
